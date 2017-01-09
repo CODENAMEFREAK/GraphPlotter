@@ -12,6 +12,7 @@ public class ObjectBase {
 	private int migrationNumber;
 	private String sourceNode;
 	private String destinationNode;
+	private long timeInSeconds;
 	/**
 	 * @return the migrationNumber
 	 */
@@ -47,6 +48,18 @@ public class ObjectBase {
 	 */
 	public void setDestinationNode(String destinationNode) {
 		this.destinationNode = destinationNode;
+	}
+	/**
+	 * @return the timeInSeconds
+	 */
+	public long getTimeInSeconds() {
+		return timeInSeconds;
+	}
+	/**
+	 * @param timeInSeconds the timeInSeconds to set
+	 */
+	public void setTimeInSeconds(long timeInSeconds) {
+		this.timeInSeconds = timeInSeconds;
 	}
 	
 }

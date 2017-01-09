@@ -1,3 +1,6 @@
+/**
+ * 
+ */
 package foss.freak.dataset.generator;
 
 import java.io.BufferedReader;
@@ -9,10 +12,17 @@ import java.util.ArrayList;
 
 import foss.freak.dataset.beans.FileDataBean;
 
-public class GenerateDatasetFromFile {
-
-	public static void main(String[] args)  {
-		// TODO Auto-generated method stub
+/**
+ * @author csuser
+ *
+ */
+public class GenerateDataListFromFile {
+	
+	/**
+	 * @returns List of Beans populated from the log file generated.
+	 * */
+	public static ArrayList<FileDataBean> generateDataListFromFile(String inputFile)
+	{
 		try {
 			BufferedReader br = new BufferedReader(new FileReader(new File("")));
 			String dataLine = br.readLine();
@@ -22,6 +32,8 @@ public class GenerateDatasetFromFile {
 				dataList.add(new FileDataBean(dataLine));
 				dataLine = br.readLine();
 			}
+			br.close();
+			return dataList;
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -29,8 +41,7 @@ public class GenerateDatasetFromFile {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-
+		return null;
 	}
 
 }

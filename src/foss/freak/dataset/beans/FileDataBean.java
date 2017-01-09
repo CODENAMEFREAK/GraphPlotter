@@ -9,17 +9,30 @@ package foss.freak.dataset.beans;
  */
 public class FileDataBean {
 	
-	private int seconds;
+	private ObjectBase baseObject = null;
 
-	public int getSeconds() {
-		return seconds;
+	/**
+	 * @return the baseObject
+	 */
+	public ObjectBase getBaseObject() {
+		return baseObject;
 	}
 
-	public void setSeconds(int seconds) {
-		this.seconds = seconds;
+	/**
+	 * @param baseObject the baseObject to set
+	 */
+	public void setBaseObject(ObjectBase baseObject) {
+		this.baseObject = baseObject;
 	}
-
-	public FileDataBean(String inputLine) {
-		setSeconds(Integer.parseInt(inputLine));
+	
+	public FileDataBean(String logLine)
+	{
+		baseObject = new ObjectBase();
+		String inputs[] = logLine.split(" ");
+		baseObject.setMigrationNumber(Integer.valueOf(inputs[0]));
+		baseObject.setSourceNode(inputs[1]);
+		baseObject.setDestinationNode(inputs[2]);
+		baseObject.setTimeInSeconds(Long.valueOf(inputs[3]));		
 	}
-}
+	
+	}
